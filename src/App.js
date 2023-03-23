@@ -1,23 +1,27 @@
 import React from "react";
 
 import "./App.css";
+import SearchBar from "./components/SearchBar";
+import cityNamedata from "./CityData.json";
+import DropDownButton from "./components/DropDownButton";
+import RideSearchCard from "./components/RideSearchCard";
+import Model from "./components/Model";
 
 function App() {
   return (
     <div className="App">
-      <div className="fromWrapper">
-        <select name="From" id="From">
-          <option value="Select where you are" disabled selected>
-            Select where you are
-          </option>
-          <option value="Akurana">Akurana</option>
-          <option value="Mawanella">Mawanella</option>
-          <option value="Kegalle">Kegalle</option>
-          <option value="Kurunegalle">Kurunegalle</option>
-          <option value="Katunayaka">Katunayaka Airport</option>
-        </select>
-      </div>
-      <input placeholder="Search" />
+      <DropDownButton title="Select where you are" />
+      <DropDownButton
+        title="Select where you want to go"
+        topMargin={0}
+        color={"black"}
+      />
+      <p className="SearchResultTiltle">
+        Available rides from <span style={{ color: "blue" }}>airport :</span>{" "}
+      </p>
+      <RideSearchCard />
+      <Model />
+      <SearchBar placeholder={"Search"} data={cityNamedata} />
     </div>
   );
 }

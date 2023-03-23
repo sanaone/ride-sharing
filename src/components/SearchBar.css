@@ -1,0 +1,28 @@
+.Searchinputs {
+  margin-top: 50px;
+  display: flex;
+}
+/* // the app.css  is overiding the <inpu> css stlyes to check later
+√https://www.youtube.com/watch?v=x7niho285qs 9:45 */
+.SearchIcon {
+  /* height: 60px;
+  width: 50px; */
+  display: grid;
+  place-items: center;
+}
+
+.DataResults {
+  margin-top: 5px;
+  width: 250px;
+  height: 200px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+  border-radius: 10px;
+  border-width: 2px;
+}
+
+.DataResults .dataItem {
+  width: 100%;
+}
