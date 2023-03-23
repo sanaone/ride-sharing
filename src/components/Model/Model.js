@@ -28,14 +28,37 @@ function Model({ placeHolder, setOpenModal, data, onSelectCity }) {
   };
 
   const renderResults = () => {
-    // console.log(searchText.length);
     if (searchText.length === 0) {
-      return data.map((value, key) => {
-        return <ResultRow value={value} key={key} onClick={clickHandlerCity} />;
+      return data.map((value, index) => {
+        return (
+          <ResultRow
+            text={value.name}
+            key={value.id}
+            onClick={clickHandlerCity}
+          />
+        );
       });
-    } else if (filteredData.length !== 0) {
-      return filteredData.map((value, key) => {
+      /*Above  the previous code was
+            return filteredData.map((value, key) => {
         return <ResultRow value={value} key={key} onClick={clickHandlerCity} />;
+
+        we corrected the naming converstion for easy for other developers to undestand. how did we do it.
+        value={value} diidnt make any bells as it was hard to undestand. so ali spoke about how to correct it.
+        making a sense wording or nameing. for example its easily undestandable for a person to get the text property or a textbox.
+
+        similary the resultrow is undestandble name. and the actual work done was displaying a text in row.
+        we the the propertyname to text. need to follow this in the future.
+        //TODO : Practice proper nameing for properties in components 
+      */
+    } else if (filteredData.length !== 0) {
+      return filteredData.map((value, index) => {
+        return (
+          <ResultRow
+            text={value.name}
+            key={value.id}
+            onClick={clickHandlerCity}
+          />
+        );
       });
     } else {
       return (
@@ -67,10 +90,10 @@ function Model({ placeHolder, setOpenModal, data, onSelectCity }) {
   );
 }
 
-function ResultRow({ value, key, onClick }) {
+function ResultRow({ text, onClick }) {
   return (
-    <div className="result-row" key={key} onClick={() => onClick(value.Name)}>
-      {value.Name}
+    <div className="result-row" onClick={() => onClick(text)}>
+      {text}
     </div>
   );
 }
