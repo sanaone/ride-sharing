@@ -2,14 +2,37 @@ select {
   background-color: transparent;
   /* border-color: ; */
   border-width: 0;
-  color: blue;
-
+  color: #0075ff;
+  /* // ...existing styles */
+  outline: none;
+  appearance: none;
+  /* // Additional resets for further consistency */
+  background-color: transparent;
+  border: none;
+  padding: 0 7em 10 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  text-align: center;
+  /* // ...existing styles */
+  outline: none;
   /* border-radius: 15%; */
 }
 .fromWrapper {
-  border-color: blue;
+  border-color: #0075ff;
   border-radius: 10px;
   border-width: 2px;
   border-style: solid;
+  width: 250px;
+}
+input {
+  background-color: #efefef;
+  border-color: blue;
+  border: none;
+  border-radius: 10px;
+  /* border-width: 2px; */
+  border-style: none;
   width: 250px;
 }

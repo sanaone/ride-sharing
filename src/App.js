@@ -17,6 +17,7 @@ function App() {
           <option value="Katunayaka">Katunayaka Airport</option>
         </select>
       </div>
+      <input placeholder="Search" />
     </div>
   );
 }
