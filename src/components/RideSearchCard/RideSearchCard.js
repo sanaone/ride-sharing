@@ -3,15 +3,15 @@ import "./RideSearchCard.css";
 // import { useNavigate } from "react-router-dom";
 import SignUpPage from "../../Pages/SignUpPage/SignUpPage";
 
-function RideSearchCard({ availableRide }) {
-  const [bookNowVisible, setBookNowVisible] = useState(false);
-
+function RideSearchCard({
+  availableRide,
+  setConfirmBookingVisible,
+  setSelectedRide,
+  bookNowVisible,
+}) {
   const clickHandler = (event) => {
-    setBookNowVisible(!bookNowVisible);
-  };
-
-  const bookNowHandler = (e) => {
-    e.stopPropagation();
+    //setBookNowVisible(!bookNowVisible);
+    setSelectedRide(availableRide);
   };
 
   // const navigate = useNavigate();
@@ -46,8 +46,9 @@ function RideSearchCard({ availableRide }) {
             ? { visibility: "visible" }
             : { visibility: "hidden", display: "none" }
         }
-        onClick={() => {
-          bookNowHandler();
+        onClick={(e) => {
+          setConfirmBookingVisible(true);
+          e.stopPropagation();
         }}
       >
         Book Now

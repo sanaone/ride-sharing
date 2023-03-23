@@ -28,7 +28,7 @@ function Model({ placeHolder, setOpenModal, data, onSelectCity }) {
   };
 
   const renderResults = () => {
-    console.log(searchText.length);
+    // console.log(searchText.length);
     if (searchText.length === 0) {
       return data.map((value, key) => {
         return <ResultRow value={value} key={key} onClick={clickHandlerCity} />;

@@ -15,7 +15,12 @@ function SignUpOTP() {
       </div>
       <div className="phoneOTPNoLayout">
         <div className="phone-OTP-NoLabel">OTP</div>
-        <input className="txtOTP" type="text" />
+        <input
+          className="txtOTP"
+          type="number"
+          pattern="[0-9]*"
+          inputmode="numeric"
+        />
       </div>
       <button className="btnNext" onClick={() => navigate("/")}>
         Next
