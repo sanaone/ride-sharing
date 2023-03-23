@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="fromWrapper">
+        <select name="From" id="From">
+          <option value="Select where you are" disabled selected>
+            Select where you are
+          </option>
+          <option value="Akurana">Akurana</option>
+          <option value="Mawanella">Mawanella</option>
+          <option value="Kegalle">Kegalle</option>
+          <option value="Kurunegalle">Kurunegalle</option>
+          <option value="Katunayaka">Katunayaka Airport</option>
+        </select>
+      </div>
     </div>
   );
 }
