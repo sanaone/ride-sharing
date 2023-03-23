@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import "./App.css";
 
-import cityNameData from "./CityData.json";
 import DropDownButton from "./components/DropDownButton";
 import RideSearchCard from "./components/RideSearchCard";
 import Model from "./components/Model";
-// import availableRidesData from "./AvailableRides.json";
+
 import axios from "axios";
 import UserInfoHeader from "./components/UserInfoHeader";
 import ConfirmBooking from "./components/ConfirmBooking/ConfirmBooking";
@@ -18,6 +17,7 @@ function App() {
   const [cityTo, setCityTo] = useState("Select where you want to go");
   const [modalType, setModalType] = useState("FROM");
   const [availableRides, setAvailableRides] = useState([]);
+  const [cityData, setcityData] = useState([]);
   const [confirmBookingVisible, setConfirmBookingVisible] = useState(false);
   const [selectedRide, setSelectedRide] = useState({});
   // const bookNowHandler = (e) => {
@@ -25,13 +25,15 @@ function App() {
   //   setConfirmBookingVisible(true);
   // };
 
-  const getData = async () => {
+  const getAppData = async () => {
     const url = "http://localhost:3001/getAvailableRides";
-    setAvailableRides(await (await axios.get(url)).data);
+    setAvailableRides((await axios.get(url)).data);
+    const urlCityData = "http://localhost:3001/getCityData";
+    setcityData((await axios.get(urlCityData)).data);
   };
 
   useEffect(() => {
-    getData();
+    getAppData();
   }, []);
 
   return (
@@ -87,7 +89,7 @@ function App() {
       {openModal ? (
         <Model
           setOpenModal={setOpenModal}
-          data={cityNameData}
+          data={cityData}
           setModalType={setModalType}
           onSelectCity={modalType === "FROM" ? setCityFrom : setCityTo}
           placeHolder={"Search Place"}
