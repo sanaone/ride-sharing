@@ -1,18 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./MyBooking.css";
 import leftArrow from "../../images/leftArrow.svg";
 import RideSearchCard from "../../components/RideSearchCard";
 import availableRides from "../../AvailableRides.json";
+import axios from "axios";
 
 function MyBooking() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [myBooking, setMyBooking] = useState({});
+
   const BOOKING_STATUSES = {
     pending: "PENDING",
     confirmed: "CONFIRMED",
   };
+
+  const getAppData = async () => {
+    const url = "http://localhost:3001/getMyBooking";
+    const response = await axios.get(url);
+    setMyBooking(response.data);
+  };
+
+  useEffect(() => {
+    getAppData();
+  }, []);
 
   return (
     <div className="myBookingContainer">
@@ -32,19 +45,19 @@ function MyBooking() {
       </div>
       <div className="Booking_Status">
         Your booking is{" "}
-        {availableRides[0].bookingStatus === BOOKING_STATUSES.pending
+        {myBooking.bookingStatus === BOOKING_STATUSES.pending
           ? "pending. Please wait until the driver accepts your request. "
           : "accepted. You can contact your driver."}
       </div>
       <div className="Booking_noOfSeatsRequested">
-        {availableRides[0].noOfSeatsAvailable + " Seats requested"}
+        {myBooking.requestedSeats + " Seats requested"}
       </div>
       <RideSearchCard
         className="Booking-RideSharingCard"
         style={{ margin: "0px 0px", width: "100%", color: "red" }}
-        //TODO to remove availableRides[0] and actualy pull the rides available for this customer (customerID is the phoneNo)
-        availableRide={availableRides[0]}
-        key={availableRides[0].id}
+        //TODO to remove myBooking and actualy pull the rides available for this customer (customerID is the phoneNo)
+        availableRide={myBooking}
+        key={myBooking.id}
         setConfirmBookingVisible={(visible) => {
           //TODO to remove this function or todo something about it if not used.
           console.log("confirmbooking visible set to " + visible);
@@ -52,7 +65,7 @@ function MyBooking() {
         //TODO to set the selected ride may be this users can have multiple bookings
         //originally this is used to pass the infor of the selected ridecard
         setSelectedRide={
-          //availableRides[0]
+          //myBooking
           () => {
             console.log(
               "Set Selected ride called form bookings>>ridesharingcard"
@@ -63,12 +76,12 @@ function MyBooking() {
 
         ctaBtnVisibile={true}
         ctaBtnText={
-          availableRides[0].bookingStatus === BOOKING_STATUSES.pending
+          myBooking.bookingStatus === BOOKING_STATUSES.pending
             ? "Cancel"
             : "Call Driver"
         }
         ctaBtnStyle={
-          availableRides[0].bookingStatus === BOOKING_STATUSES.pending
+          myBooking.bookingStatus === BOOKING_STATUSES.pending
             ? { backgroundColor: "rgb(80,80,80)" }
             : null
         }

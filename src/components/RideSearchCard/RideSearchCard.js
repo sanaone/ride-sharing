@@ -9,6 +9,7 @@ function RideSearchCard({
   ctaBtnVisibile,
   ctaBtnText,
   ctaBtnStyle,
+  driverPhoneNo,
 }) {
   const clickHandler = (event) => {
     //setBookNowVisible(!bookNowVisible);
@@ -51,6 +52,11 @@ function RideSearchCard({
           onClick={(e) => {
             setConfirmBookingVisible(true);
             e.stopPropagation();
+            //if this is  click withing the booking screen and the driver call button then call the driver
+            if (ctaBtnText === "Call Driver") {
+              // alert("working on calling the driver");
+              window.open("tel:07776697795");
+            }
           }}
         >
           {ctaBtnText}

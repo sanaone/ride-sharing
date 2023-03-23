@@ -17,7 +17,7 @@ function SignUpPage() {
           className="txtphoneNo"
           type="text"
           onChange={(e) => {
-            setPhoneNo(e.target.value);
+            setPhoneNo("+94" + e.target.value);
             console.log("INPUT>>" + phoneNo);
           }}
         />
