@@ -6,13 +6,13 @@ function ConfirmBooking({ setConfirmBookingVisible, selectedRide }) {
 
   const handleTextChange = (e) => {
     const iSeatsAvailable = parseInt(e.target.value);
-    if (iSeatsAvailable <= selectedRide.SeatsAvailable) {
+    if (iSeatsAvailable <= selectedRide.noOfSeatsAvailable) {
       setseatValidationMsg("");
 
       // To update the Booking JSon file with seatsbooked value and phoneNo as the user ID
     } else {
       setseatValidationMsg(
-        "Please enter a number within " + selectedRide.SeatsAvailable
+        "Please enter a number within " + selectedRide.noOfSeatsAvailable
       );
     }
   };
@@ -28,7 +28,8 @@ function ConfirmBooking({ setConfirmBookingVisible, selectedRide }) {
         <div className="title">Confirm your booking</div>
 
         <div className="noOfSeatsTitle">
-          Number of seats you want to book out of {selectedRide.SeatsAvailable}
+          Number of seats you want to book out of{" "}
+          {selectedRide.noOfSeatsAvailable}
         </div>
         <input
           className="txtNoOfSeats"

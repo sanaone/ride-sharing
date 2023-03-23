@@ -1,20 +1,25 @@
 [
     {
-        "RideID": 1,
-        "CityFrom": "Akurana",
+        "id": 1,
+        "cityFrom": "Akurana",
+        "cityTo": "Mawanella",
         "RideDate": "01-03-2023",
-        "SeatsAvailable": 2
+        "noOfSeatsAvailable": 2,
+        "bookingComfirmedStatus": true
     },
     {
-        "RideID": 2,
-        "CityFrom": "Alawathugoda",
+        "id": 2,
+        "cityFrom": "Alawathugoda",
+        "cityTo": "Kandy",
         "RideDate": "01-03-2023",
-        "SeatsAvailable": 3
+        "noOfSeatsAvailable": 3,
+        "bookingComfirmedStatus": false
     },
     {
-        "RideID": 3,
+        "id": 3,
         "CityFrom": "Mawanella",
         "RideDate": "19-02-2023",
-        "SeatsAvailable": 1
+        "noOfSeatsAvailable": 1,
+        "bookingComfirmedStatus": false
     }
 ]

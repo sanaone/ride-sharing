@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import SignUpPage from "../../Pages/SignUpPage/SignUpPage";
+
 import userAccount from "../../images/userAccount.svg";
 import "./UserInfoHeader.css";
 

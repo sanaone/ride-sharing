@@ -6,6 +6,8 @@ function RideSearchCard({
   setConfirmBookingVisible,
   setSelectedRide,
   bookNowVisible,
+  cancelBookingVisible,
+  callDriverVisible,
 }) {
   const clickHandler = (event) => {
     //setBookNowVisible(!bookNowVisible);
@@ -18,7 +20,7 @@ function RideSearchCard({
     <div
       className="rideSearchCard"
       style={
-        bookNowVisible
+        bookNowVisible || callDriverVisible
           ? { border: "1px solid rgb(0, 117, 255)" }
           : { border: "1px solid rgb(0, 0, 0)" }
       }
@@ -38,7 +40,6 @@ function RideSearchCard({
           <div className="searchCard-item-3">Today</div>
         </div>
       </div>
-
       <button
         className="btnBookNow"
         style={
@@ -52,6 +53,35 @@ function RideSearchCard({
         }}
       >
         Book Now
+      </button>
+
+      <button
+        className="btnCancelBooking"
+        style={
+          cancelBookingVisible
+            ? { visibility: "visible" }
+            : { visibility: "hidden", display: "none" }
+        }
+        onClick={(e) => {
+          // setConfirmBookingVisible(true);
+          e.stopPropagation();
+        }}
+      >
+        Cancel
+      </button>
+      <button
+        className="btncallDriverVisible"
+        style={
+          callDriverVisible
+            ? { visibility: "visible" }
+            : { visibility: "hidden", display: "none" }
+        }
+        onClick={(e) => {
+          // setConfirmBookingVisible(true);
+          e.stopPropagation();
+        }}
+      >
+        Call Driver
       </button>
     </div>
   );
