@@ -1,0 +1,48 @@
+.signUpContainer {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.signUpTitle {
+  padding-top: 30px;
+  padding-right: 52px;
+  font-size: 24px;
+}
+.phoneNoLabel {
+  padding-top: 40px;
+  font-size: 12px;
+}
+
+.phoneNoLayout {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+.phoneNoPrefix {
+  font-size: 16px;
+  flex-basis: 9.72%;
+  margin-bottom: 10px;
+}
+.txtphoneNo {
+  flex-basis: 90.28%;
+  font-size: 16px;
+  border: none;
+  outline: none;
+
+  margin-bottom: 10px;
+}
+.btnNext {
+  align-self: flex-start;
+  background-color: #0075ff;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  padding: 8px 20px 8px 20px;
+  margin-top: 10px;
+}

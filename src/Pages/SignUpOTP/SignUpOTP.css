@@ -1,0 +1,49 @@
+.signUpContainer {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.signUpTitle {
+  padding-top: 30px;
+  padding-right: 52px;
+  font-size: 24px;
+}
+.phone-OTP-NoLabel {
+  padding-top: 40px;
+  font-size: 16px;
+}
+
+.phoneOTPNoLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+.lblphoneNo {
+  font-size: 16px;
+  /* flex-basis: 9.72%; */
+  margin-bottom: 10px;
+  color: #777777;
+}
+.txtOTP {
+  /* flex-basis: 90.28%; */
+  font-size: 16px;
+  border: none;
+  outline: none;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.btnNext {
+  align-self: flex-start;
+  background-color: #0075ff;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  padding: 8px 20px 8px 20px;
+  margin-top: 10px;
+}

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./RideSearchCard.css";
+// import { useNavigate } from "react-router-dom";
+import SignUpPage from "../../Pages/SignUpPage/SignUpPage";
 
 function RideSearchCard({ availableRide }) {
   const [bookNowVisible, setBookNowVisible] = useState(false);
@@ -11,6 +13,8 @@ function RideSearchCard({ availableRide }) {
   const bookNowHandler = (e) => {
     e.stopPropagation();
   };
+
+  // const navigate = useNavigate();
 
   return (
     <div
@@ -42,7 +46,9 @@ function RideSearchCard({ availableRide }) {
             ? { visibility: "visible" }
             : { visibility: "hidden", display: "none" }
         }
-        onClick={bookNowHandler}
+        onClick={() => {
+          bookNowHandler();
+        }}
       >
         Book Now
       </button>
