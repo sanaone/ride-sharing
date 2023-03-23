@@ -1,5 +1,3 @@
-import { Alert } from "@mui/material";
-import { blue, grey } from "@mui/material/colors";
 import React, { useState } from "react";
 import "./ConfirmBooking.css";
 
@@ -7,21 +5,16 @@ function ConfirmBooking({ setConfirmBookingVisible, selectedRide }) {
   const [seatValidationMsg, setseatValidationMsg] = useState("");
 
   const handleTextChange = (e) => {
-    try {
-      const iSeatsAvailable = parseInt(e.target.value);
-      if (iSeatsAvailable <= selectedRide.SeatsAvailable) {
-        setseatValidationMsg("");
+    const iSeatsAvailable = parseInt(e.target.value);
+    if (iSeatsAvailable <= selectedRide.SeatsAvailable) {
+      setseatValidationMsg("");
 
-        // To update the Booking JSon file with seatsbooked value and phoneNo as the user ID
-      } else {
-        setseatValidationMsg(
-          "Please enter a number within " + selectedRide.SeatsAvailable
-        );
-      }
-    } catch (error) {
-      console.log("the error is :" + error);
+      // To update the Booking JSon file with seatsbooked value and phoneNo as the user ID
+    } else {
+      setseatValidationMsg(
+        "Please enter a number within " + selectedRide.SeatsAvailable
+      );
     }
-    // console.log(e.target.value);
   };
   return (
     <div
