@@ -1,57 +1,26 @@
 [
     {
         "Name": "Akurana",
-        "Date": "01-12-2022"
+        "District": "Kandy"
     },
     {
-        "Name": "Mawenella"
+        "Name": "Mawenella",
+        "District": "Kegalle"
     },
     {
-        "Name": "Matale"
+        "Name": "Matale",
+        "District": "Matale"
     },
     {
-        "Name": "Kegalle"
+        "Name": "Kegalle",
+        "District": "Kegalle"
     },
     {
-        "Name": "Kandy"
+        "Name": "Kandy",
+        "District": "Kandy"
     },
     {
-        "Name": "Katugostota"
-    },
-    {
-        "Name": "Akurana"
-    },
-    {
-        "Name": "Mawenella"
-    },
-    {
-        "Name": "Matale"
-    },
-    {
-        "Name": "Kegalle"
-    },
-    {
-        "Name": "Kandy"
-    },
-    {
-        "Name": "Katugostota"
-    },
-    {
-        "Name": "Akurana"
-    },
-    {
-        "Name": "Mawenella"
-    },
-    {
-        "Name": "Matale"
-    },
-    {
-        "Name": "Kegalle"
-    },
-    {
-        "Name": "Kandy"
-    },
-    {
-        "Name": "Katugostota"
+        "Name": "Katugostota",
+        "District": "Kandy"
     }
 ]

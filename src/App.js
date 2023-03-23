@@ -30,6 +30,8 @@ function App() {
     setAvailableRides((await axios.get(url)).data);
     const urlCityData = "http://localhost:3001/getCityData";
     setcityData((await axios.get(urlCityData)).data);
+    const urlRideID = "http://localhost:3001/getAvailableRides";
+    await axios.post(urlRideID, { id: 1 });
   };
 
   useEffect(() => {
