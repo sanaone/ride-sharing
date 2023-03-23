@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./App.css";
 
@@ -9,9 +10,16 @@ import Model from "./components/Model";
 import axios from "axios";
 import UserInfoHeader from "./components/UserInfoHeader";
 import ConfirmBooking from "./components/ConfirmBooking/ConfirmBooking";
+import bookingBtn from "./images/bookingicon.png";
+import closeButton from "./images/closeButton.svg";
 
 const SEARCH_PLACEHOLDER = "Select where you are";
 function App() {
+  const phoneNo = "0777123123";
+  //TODO : update the actual user phone no BY REDIRECTING TO SIGNUPPAGE
+
+  const navigate = useNavigate();
+
   const [openModal, setOpenModal] = useState(false);
   const [cityFrom, setCityFrom] = useState(SEARCH_PLACEHOLDER);
   const [cityTo, setCityTo] = useState("Select where you want to go");
@@ -106,6 +114,23 @@ function App() {
             <span style={{ color: "#0075ff", fontWeight: "bold" }}></span> :
           </span>
         )}
+        <img
+          className="btnMyBooking"
+          src={bookingBtn}
+          alt=""
+          onClick={() =>
+            navigate("/MyBooking", { state: { phoneNo: phoneNo } })
+          }
+        />
+        <img
+          className="RideshareResetFilter"
+          src={closeButton}
+          alt=""
+          onClick={() => {
+            setFilteredRides(availableRides);
+            setCityFrom(SEARCH_PLACEHOLDER);
+          }}
+        />
       </p>
       {
         /* write a code to map availableRides and render eachRideSearchCard */
@@ -119,6 +144,7 @@ function App() {
             setConfirmBookingVisible={setConfirmBookingVisible}
             setSelectedRide={setSelectedRide}
             bookNowVisible={selectedRide.id === availableRide.id}
+            cancelBookingVisible={false}
           />
         );
       })}
