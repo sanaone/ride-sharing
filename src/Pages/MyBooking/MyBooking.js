@@ -9,6 +9,11 @@ function MyBooking() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const BOOKING_STATUSES = {
+    pending: "PENDING",
+    confirmed: "CONFIRMED",
+  };
+
   return (
     <div className="myBookingContainer">
       {/* <div className="title">My Booking for : {location.state.phoneNo}</div> */}
@@ -26,10 +31,13 @@ function MyBooking() {
         </div>
       </div>
       <div className="Booking_Status">
-        Your booking is {"<booking status> " + " <booking status msg>"}
+        Your booking is{" "}
+        {availableRides[0].bookingStatus === BOOKING_STATUSES.pending
+          ? "pending. Please wait until the driver accepts your request. "
+          : "accepted. You can contact your driver."}
       </div>
       <div className="Booking_noOfSeatsRequested">
-        {"xx2xx " + "Seats requested"}
+        {availableRides[0].noOfSeatsAvailable + " Seats requested"}
       </div>
       <RideSearchCard
         className="Booking-RideSharingCard"
@@ -54,9 +62,16 @@ function MyBooking() {
         // Booknow has to be invisible here all the time because this is a booking already
 
         ctaBtnVisibile={true}
-        ctaBtnText="Cancel"
-        // cancelBookingVisible={false}
-        // callDriverVisible={true}
+        ctaBtnText={
+          availableRides[0].bookingStatus === BOOKING_STATUSES.pending
+            ? "Cancel"
+            : "Call Driver"
+        }
+        ctaBtnStyle={
+          availableRides[0].bookingStatus === BOOKING_STATUSES.pending
+            ? { backgroundColor: "rgb(80,80,80)" }
+            : null
+        }
       />
     </div>
   );

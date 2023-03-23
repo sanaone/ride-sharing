@@ -20,13 +20,14 @@ function RideSearchCard({
   const getStyle = () => {
     let mystlye = {};
 
-    if (ctaBtnVisibile) {
+    if (ctaBtnVisibile && ctaBtnText !== "Cancel") {
       mystlye = { border: "1px solid rgb(0, 117, 255)" };
     } else {
       mystlye = { border: "1px solid rgb(0, 0, 0)" };
     }
     return style ? { ...mystlye, ...style } : mystlye;
   };
+
   return (
     <div className="rideSearchCard" style={getStyle()} onClick={clickHandler}>
       <div className="rideSearchCardInner">

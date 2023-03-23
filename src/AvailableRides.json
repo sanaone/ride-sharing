@@ -5,7 +5,7 @@
         "cityTo": "Mawanella",
         "RideDate": "01-03-2023",
         "noOfSeatsAvailable": 2,
-        "bookingComfirmedStatus": true
+        "bookingStatus": "PENDING"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "cityTo": "Kandy",
         "RideDate": "01-03-2023",
         "noOfSeatsAvailable": 3,
-        "bookingComfirmedStatus": false
+        "bookingStatus": "Canceled"
     },
     {
         "id": 3,

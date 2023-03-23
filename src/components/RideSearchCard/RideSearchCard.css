@@ -75,7 +75,7 @@
 .btnCancelBooking {
   width: 100%;
   color: white;
-  background-color: #505050;
+  background-color: rgb(80, 80, 80);
   font-size: 12px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
