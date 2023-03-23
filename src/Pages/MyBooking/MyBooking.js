@@ -32,7 +32,6 @@ function MyBooking() {
         {"xx2xx " + "Seats requested"}
       </div>
       <RideSearchCard
-        //FIXME why cant i make a custom css for this instance of the react component
         className="Booking-RideSharingCard"
         style={{ margin: "0px 0px", width: "100%", color: "red" }}
         //TODO to remove availableRides[0] and actualy pull the rides available for this customer (customerID is the phoneNo)
@@ -53,9 +52,11 @@ function MyBooking() {
           }
         }
         // Booknow has to be invisible here all the time because this is a booking already
-        bookNowVisible={false}
-        cancelBookingVisible={false}
-        callDriverVisible={true}
+
+        ctaBtnVisibile={true}
+        ctaBtnText="Cancel"
+        // cancelBookingVisible={false}
+        // callDriverVisible={true}
       />
     </div>
   );

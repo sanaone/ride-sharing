@@ -4,10 +4,11 @@ import "./RideSearchCard.css";
 function RideSearchCard({
   availableRide,
   setConfirmBookingVisible,
+  style,
   setSelectedRide,
-  bookNowVisible,
-  cancelBookingVisible,
-  callDriverVisible,
+  ctaBtnVisibile,
+  ctaBtnText,
+  ctaBtnStyle,
 }) {
   const clickHandler = (event) => {
     //setBookNowVisible(!bookNowVisible);
@@ -15,17 +16,19 @@ function RideSearchCard({
   };
 
   // const navigate = useNavigate();
+  //what does get style do? it sets the blue color theme acordingly. call driver btn,  booknow btn, ===>Blue ..
+  const getStyle = () => {
+    let mystlye = {};
 
+    if (ctaBtnVisibile) {
+      mystlye = { border: "1px solid rgb(0, 117, 255)" };
+    } else {
+      mystlye = { border: "1px solid rgb(0, 0, 0)" };
+    }
+    return style ? { ...mystlye, ...style } : mystlye;
+  };
   return (
-    <div
-      className="rideSearchCard"
-      style={
-        bookNowVisible || callDriverVisible
-          ? { border: "1px solid rgb(0, 117, 255)" }
-          : { border: "1px solid rgb(0, 0, 0)" }
-      }
-      onClick={clickHandler}
-    >
+    <div className="rideSearchCard" style={getStyle()} onClick={clickHandler}>
       <div className="rideSearchCardInner">
         <div className="searchCard-item-right">
           <div className="searchCard-item-1">Van - Hiace 10 seater</div>
@@ -40,49 +43,18 @@ function RideSearchCard({
           <div className="searchCard-item-3">Today</div>
         </div>
       </div>
-      <button
-        className="btnBookNow"
-        style={
-          bookNowVisible
-            ? { visibility: "visible" }
-            : { visibility: "hidden", display: "none" }
-        }
-        onClick={(e) => {
-          setConfirmBookingVisible(true);
-          e.stopPropagation();
-        }}
-      >
-        Book Now
-      </button>
-
-      <button
-        className="btnCancelBooking"
-        style={
-          cancelBookingVisible
-            ? { visibility: "visible" }
-            : { visibility: "hidden", display: "none" }
-        }
-        onClick={(e) => {
-          // setConfirmBookingVisible(true);
-          e.stopPropagation();
-        }}
-      >
-        Cancel
-      </button>
-      <button
-        className="btncallDriverVisible"
-        style={
-          callDriverVisible
-            ? { visibility: "visible" }
-            : { visibility: "hidden", display: "none" }
-        }
-        onClick={(e) => {
-          // setConfirmBookingVisible(true);
-          e.stopPropagation();
-        }}
-      >
-        Call Driver
-      </button>
+      {ctaBtnVisibile ? (
+        <button
+          className="btnBookNow"
+          style={ctaBtnStyle}
+          onClick={(e) => {
+            setConfirmBookingVisible(true);
+            e.stopPropagation();
+          }}
+        >
+          {ctaBtnText}
+        </button>
+      ) : null}
     </div>
   );
 }

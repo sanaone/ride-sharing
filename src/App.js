@@ -143,8 +143,8 @@ function App() {
             key={availableRide.id}
             setConfirmBookingVisible={setConfirmBookingVisible}
             setSelectedRide={setSelectedRide}
-            bookNowVisible={selectedRide.id === availableRide.id}
-            cancelBookingVisible={false}
+            ctaBtnVisibile={selectedRide.id === availableRide.id}
+            ctaBtnText="Book Now"
           />
         );
       })}

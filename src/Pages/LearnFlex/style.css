@@ -14,20 +14,20 @@ body {
 }
 #blocks {
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   margin: 10px;
   /* justify-content: flex-end; */
   align-items: center;
 
   /* gap: 10px; */
 }
-#blocks div {
+#blocks {
   width: 100px;
   flex: 1 0 100px;
   padding: 40px 0;
   text-align: center;
   /* background-color: #bbf; */
-  /* color: green; */
+  color: white;
 }
 
 .box {
@@ -40,9 +40,8 @@ body {
 }
 .two {
   order: 0;
-  color: pink;
+  color: red;
   background-color: #bbf;
-  align-self: flex-start;
 }
 .three {
   order: 0;
