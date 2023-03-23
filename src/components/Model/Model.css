@@ -21,15 +21,6 @@
   cursor: pointer;
 }
 
-.modalContainer body {
-  flex: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  text-align: center;
-}
-
 .SearchText {
   font-size: 16px;
   /* border-radius: 8px; */

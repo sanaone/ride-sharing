@@ -31,7 +31,7 @@ function ConfirmBooking({ setConfirmBookingVisible, selectedRide }) {
         // () => alert("background clicked")
       }
     >
-      <div className="modalContainer" onClick={(e) => e.stopPropagation()}>
+      <div className="modalContainer-cb" onClick={(e) => e.stopPropagation()}>
         <div className="title">Confirm your booking</div>
 
         <div className="noOfSeatsTitle">
