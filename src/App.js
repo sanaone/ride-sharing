@@ -76,7 +76,7 @@ function App() {
         return (
           <RideSearchCard
             availableRide={availableRide}
-            key={index}
+            key={availableRide.id}
             setConfirmBookingVisible={setConfirmBookingVisible}
             setSelectedRide={setSelectedRide}
             bookNowVisible={selectedRide.id === availableRide.id}
