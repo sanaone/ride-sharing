@@ -3,7 +3,7 @@ import React, { useState } from "react";
 //import SearchIcon from "@mui/icons-material/Search";
 import "./SearchBar.css";
 
-function SearchBar({ placeholder, data }) {
+function SearchBar({ placeholder, data, searchText }) {
   const [filderedData, setFilderedData] = useState([]);
 
   const handleFilter = (event) => {
@@ -33,7 +33,12 @@ function SearchBar({ placeholder, data }) {
       {filderedData.length !== 0 ? (
         <div className="DataResults">
           {filderedData.map((value, key) => {
-            return <div className="dataItem"> {value.Name}</div>;
+            return (
+              <div className="dataItem" key={key}>
+                {" "}
+                {value.Name}
+              </div>
+            );
           })}
         </div>
       ) : null}

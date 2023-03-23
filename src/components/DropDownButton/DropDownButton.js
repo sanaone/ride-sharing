@@ -1,15 +1,24 @@
 import React from "react";
 import DownArrowVector from "../../images/downArrowVector.svg";
 import "./DropDownButton.css";
-import Model from "../Model";
+//import cityNamedata from "../../CityData.json";
 
-function DropDownButton({ title, topMargin, color }) {
+function DropDownButton({
+  title,
+  topMargin,
+  color,
+  setOpenModel,
+  ModelType,
+  setModalType,
+}) {
   const clickhandler = () => {
-    alert("Button Clicked");
+    setOpenModel(true);
+    setModalType(ModelType);
   };
 
   return (
     <button
+      className="btnSelectCity"
       onClick={clickhandler}
       style={{ marginTop: topMargin, color: color, borderColor: color }}
     >

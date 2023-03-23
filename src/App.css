@@ -1,13 +1,16 @@
-input {
+/* input {
   background-color: #efefef;
   border-color: #0075ff;
   border: none;
   border-radius: 10px;
-  /* border-width: 2px; */
+  border-width: 2px; 
   border-style: none;
   width: 250px;
+} */
+.App {
 }
 .SearchResultTiltle {
-  font-size: 18px;
-  margin: 42px 20px 10px 20px;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin: 42px 20px 0px 20px;
 }

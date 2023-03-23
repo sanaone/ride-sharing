@@ -1,0 +1,20 @@
+[
+    {
+        "RideID": 1,
+        "CityFrom": "Akurana",
+        "RideDate": "01-03-2023",
+        "SeatsAvailable": 2
+    },
+    {
+        "RideID": 2,
+        "CityFrom": "Alawathugoda",
+        "RideDate": "01-03-2023",
+        "SeatsAvailable": 3
+    },
+    {
+        "RideID": 3,
+        "CityFrom": "Mawanella",
+        "RideDate": "19-02-2023",
+        "SeatsAvailable": 1
+    }
+]

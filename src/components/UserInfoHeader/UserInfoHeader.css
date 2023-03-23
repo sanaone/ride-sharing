@@ -1,0 +1,19 @@
+.userInforHeaderContainer {
+  display: flex;
+
+  justify-content: flex-end;
+  /* align-content: center; */
+  align-items: center;
+  /* flex-flow: column; */
+  padding: 20px 20px 0 20px;
+}
+.tittle {
+  /* align-self: flex-start; */
+  /* align-self: center; */
+  flex-basis: 65%;
+}
+
+.accountLogo {
+  /* flex-direction: column; */
+  align-self: flex-end;
+}
