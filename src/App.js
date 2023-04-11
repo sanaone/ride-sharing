@@ -13,6 +13,8 @@ import ConfirmBooking from "./components/ConfirmBooking/ConfirmBooking";
 import bookingBtn from "./images/bookingicon.png";
 import closeButton from "./images/closeButton.svg";
 
+import Cookies from "js-cookie";
+
 const SEARCH_PLACEHOLDER = "Select where you are";
 function App() {
   const phoneNo = "0777123123";
@@ -26,6 +28,7 @@ function App() {
   const [modalType, setModalType] = useState("FROM");
   const [availableRides, setAvailableRides] = useState([]);
   const [filteredRides, setFilteredRides] = useState([]);
+  const [userID, setuserID] = useState("Please login");
 
   const [cityData, setcityData] = useState([]);
   const [confirmBookingVisible, setConfirmBookingVisible] = useState(false);
@@ -42,6 +45,33 @@ function App() {
 
     // const urlRideID = "http://localhost:3001/getAvailableRides";
     // await axios.post(urlRideID, { id: 1 });
+
+    const urlLogin = "http://localhost:3001/login";
+    //console.log(await axios.post(urlLogin, { username: "sana" }));
+
+    const myCookieTokenValue = Cookies.get("myCookie");
+
+    if (myCookieTokenValue) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${
+            JSON.parse(myCookieTokenValue).data.AccessToken
+          }`,
+        },
+      };
+
+      const retrievedUserName = await axios.get(
+        "http://localhost:3001/api/getLoggedInuser",
+        config
+      );
+      setuserID(retrievedUserName.data.message);
+      console.log(
+        ///config.headers.Authorization
+        retrievedUserName.data.message
+        //"cookie found " + JSON.parse(Cookies.get("myCookie")).data.AccessToken
+      );
+      console.log(JSON.parse(Cookies.get("myCookie")).data.AccessToken);
+    }
   };
 
   useEffect(() => {
@@ -83,7 +113,7 @@ function App() {
 
   return (
     <div className="App">
-      <UserInfoHeader />
+      <UserInfoHeader userID={userID} />
       <DropDownButton
         title={cityFrom}
         setOpenModel={setOpenModal}
@@ -129,6 +159,8 @@ function App() {
           onClick={() => {
             setFilteredRides(availableRides);
             setCityFrom(SEARCH_PLACEHOLDER);
+            //log off code to remove the cookie
+            Cookies.remove("myCookie");
           }}
         />
       </p>

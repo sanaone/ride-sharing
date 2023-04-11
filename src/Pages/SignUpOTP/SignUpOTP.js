@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./SignUpOTP.css";
-
+import Cookies from "js-cookie";
+import axios from "axios";
 import {
   getAuth,
   RecaptchaVerifier,
@@ -45,19 +46,28 @@ function SignUpOTP() {
         size: "invisible",
         callback: (response) => {
           setrecaptchaSolved(true);
-          requestOTP();
-
+          //requestOTP();
+          alert("recaptre solved");
           // reCAPTCHA solved, allow signInWithPhoneNumber.
           // ...
         },
         "expired-callback": () => {
+          console.log(
+            "this is from the expired callback from oncapthaverfiy func.."
+          );
           // Response expired. Ask user to solve reCAPTCHA again.
           // ...
         },
       },
       auth
     );
-    window.recaptchaVerifier.verify();
+
+    try {
+      window.recaptchaVerifier.verify();
+      console.log("triggered the recapture verify... wait");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   function requestOTP() {
@@ -74,12 +84,12 @@ function SignUpOTP() {
         // user in with confirmationResult.confirm(code).
         window.confirmationResult = confirmationResult;
         setrecaptchaSolved(true);
-        setSeconds(45);
-        // alert("");
+        setSeconds(10);
+        alert("we have set the recaptcha ");
         // ...
       })
       .catch((error) => {
-        alert("otp wsant sent plz check : ");
+        alert("otp wasnt sent plz check : ");
         console.log(error);
         // Error; SMS not sent
         // ...
@@ -88,11 +98,28 @@ function SignUpOTP() {
 
   async function validateOTP() {
     try {
+      const tokenRecived = await axios.post("http://localhost:3001/login", {
+        username: location.state.phoneNo,
+      });
+
+      Cookies.set("myCookie", JSON.stringify(tokenRecived), {
+        expires: 7,
+      });
+      // alert(tokenRecived.AccessToken);
+      //console.log(JSON.parse(Cookies.get("myCookie")).data.AccessToken);
+
       const result = await window.confirmationResult.confirm(otp);
       alert(result.user.phoneNumber + " has succesfully logged in");
+      alert(location.state.phoneNumber + " has succesfully logged in");
+      //TODO To route this to the booking page
+
+      //console.log(tokenRecived);
     } catch (err) {
-      alert("Invalid OTP");
+      alert(
+        "Invalid OTP however moving to the next window as otp code is opted for the time being"
+      );
     }
+    navigate("/MyBooking", { state: { phoneNo: location.state.phoneNo } });
   }
 
   return (
