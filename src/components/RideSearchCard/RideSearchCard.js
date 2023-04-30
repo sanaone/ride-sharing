@@ -10,6 +10,7 @@ function RideSearchCard({
   ctaBtnText,
   ctaBtnStyle,
   driverPhoneNo,
+  isBooking,
 }) {
   const clickHandler = (event) => {
     //setBookNowVisible(!bookNowVisible);
@@ -36,7 +37,9 @@ function RideSearchCard({
           <div className="searchCard-item-1">Van - Hiace 10 seater</div>
           <div className="searchCard-item-2">{availableRide.cityFrom}</div>
           <div className="searchCard-item-3">
-            {availableRide.noOfSeatsAvailable} seats available
+            {isBooking
+              ? availableRide.seatsbooked
+              : availableRide.noOfSeatsAvailable + "seats available"}
           </div>
         </div>
         <div className="searchCard-item-left">

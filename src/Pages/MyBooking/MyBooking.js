@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./MyBooking.css";
 import leftArrow from "../../images/leftArrow.svg";
 import RideSearchCard from "../../components/RideSearchCard";
-import availableRides from "../../AvailableRides.json";
+//import availableRides from "../../AvailableRides.json";
 import axios from "axios";
 
 function MyBooking() {
@@ -13,14 +13,18 @@ function MyBooking() {
   const [myBooking, setMyBooking] = useState({});
 
   const BOOKING_STATUSES = {
-    pending: "PENDING",
-    confirmed: "CONFIRMED",
+    //status ENUM('pending', 'accepted', 'completed', 'cancelled')
+    pending: "pending",
+    accepted: "accepted",
   };
 
   const getAppData = async () => {
-    const url = "http://localhost:3001/getMyBooking";
-    const response = await axios.get(url);
-    setMyBooking(response.data);
+    const url = "http://localhost:3001/getMyBookings";
+    //console.log(await axios.post(urlLogin, { username: "sana" }));
+    const response = await axios.post(url, { id: 7 });
+
+    console.log(response.data[0]);
+    setMyBooking(response.data[0]);
   };
 
   useEffect(() => {
@@ -56,6 +60,7 @@ function MyBooking() {
         className="Booking-RideSharingCard"
         style={{ margin: "0px 0px", width: "100%", color: "red" }}
         //TODO to remove myBooking and actualy pull the rides available for this customer (customerID is the phoneNo)
+        isBooking={true}
         availableRide={myBooking}
         key={myBooking.id}
         setConfirmBookingVisible={(visible) => {
